@@ -3,6 +3,10 @@ import { ArrowRight, Building2, Zap, Droplets, Shield, CheckCircle2 } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
+import WelcomeCurtain from "@/components/WelcomeCurtain";
+import TeamSection from "@/components/TeamSection";
+import StatsChart from "@/components/StatsChart";
+import WorkGallery from "@/components/WorkGallery";
 import heroImage from "@/assets/hero-engineering.jpg";
 
 const services = [
@@ -28,17 +32,13 @@ const services = [
   },
 ];
 
-const stats = [
-  { value: "500+", label: "Projects Completed" },
-  { value: "25+", label: "Years Experience" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "50+", label: "Expert Engineers" },
-];
 
 const Index = () => {
   return (
-    <Layout>
-      {/* Hero Section */}
+    <>
+      <WelcomeCurtain />
+      <Layout>
+        {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -72,21 +72,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-primary-foreground/80 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Overview */}
       <section className="py-20 bg-card">
@@ -124,7 +109,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+        {/* Stats Chart Section */}
+        <StatsChart />
+
+        {/* Team Section */}
+        <TeamSection />
+
+        {/* Why Choose Us */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -196,7 +187,11 @@ const Index = () => {
           </Button>
         </div>
       </section>
-    </Layout>
+
+        {/* Work Gallery */}
+        <WorkGallery />
+      </Layout>
+    </>
   );
 };
 
