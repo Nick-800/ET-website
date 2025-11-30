@@ -90,7 +90,7 @@ const Index = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                  <h3 className="text-lg font-semibold mb-2 text-white">{service.title}</h3>
                   <p className="text-muted-foreground text-sm">{service.description}</p>
                 </CardContent>
               </Card>
@@ -120,7 +120,7 @@ const Index = () => {
             <div>
               <span className="text-primary font-medium">Why Choose Us</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                Engineering Excellence Since 1998
+                Engineering Excellence Since 2023
               </h2>
                 <p className="text-muted-foreground mb-8">
                 With over two decades of experience, ET-Group has established itself as a leader in mechanical, electrical, and plumbing engineering. Our commitment to innovation and sustainability sets us apart.

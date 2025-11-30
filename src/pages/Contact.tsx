@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+const ContactMap = React.lazy(() => import('@/components/ContactMap'));
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -196,11 +197,30 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-80 bg-muted flex items-center justify-center">
-        <div className="text-center">
-          <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-          <p className="text-muted-foreground">Interactive Map Would Go Here</p>
+      {/* Interactive Map */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6">Our Location</h2>
+          {/* Default coords are NYC; update lat/lng props to your office coordinates */}
+          <div>
+            <Suspense fallback={
+              <div className="w-full h-72 md:h-96 rounded-md overflow-hidden flex items-center justify-center bg-muted">
+                <p className="text-muted-foreground">Loading map…</p>
+              </div>
+            }>
+              <ContactMap lat={32.1172829} lng={20.069573} zoom={16} />
+              <div className="mt-3 text-sm">
+                <a
+                  href="https://maps.app.goo.gl/FuUyCTsW5mjpB4hP6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Open in Google Maps
+                </a>
+              </div>
+            </Suspense>
+          </div>
         </div>
       </section>
     </Layout>

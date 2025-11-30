@@ -65,7 +65,7 @@ const TeamSection = () => {
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-1">{manager.name}</h3>
+                <h3 className="text-xl font-bold mb-1 text-white">{manager.name}</h3>
                 <p className="text-primary font-medium mb-3">{manager.role}</p>
                 <p className="text-muted-foreground text-sm mb-4">{manager.description}</p>
                 <div className="flex justify-center gap-3">
@@ -89,7 +89,7 @@ const TeamSection = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <User className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-1">{member.name}</h3>
+                <h3 className="font-semibold mb-1 text-white">{member.name}</h3>
                 <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
                 <p className="text-muted-foreground text-xs">{member.description}</p>
               </CardContent>
