@@ -31,20 +31,11 @@ const WorkGallery = () => {
       animationId = requestAnimationFrame(scroll);
     };
 
+    // Always animate (do not pause on hover)
     animationId = requestAnimationFrame(scroll);
-
-    const handleMouseEnter = () => cancelAnimationFrame(animationId);
-    const handleMouseLeave = () => {
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationId);
-      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
-      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -66,24 +57,20 @@ const WorkGallery = () => {
       </div>
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-hidden cursor-pointer"
+        className="flex gap-4 overflow-x-hidden"
         style={{ scrollBehavior: "auto" }}
       >
         {duplicatedImages.map((image, index) => (
           <div
             key={`${image.id}-${index}`}
-            className="flex-shrink-0 w-72 h-48 rounded-lg overflow-hidden group"
+            className="flex-shrink-0 w-72 h-48 rounded-lg overflow-hidden relative"
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <span className="text-primary-foreground font-medium text-sm px-4 text-center">
-                {image.alt}
-              </span>
-            </div>
+            {/* remove hover overlay; keep static caption accessible to screen readers if needed */}
           </div>
         ))}
       </div>

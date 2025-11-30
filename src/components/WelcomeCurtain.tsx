@@ -1,33 +1,33 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Building2 } from "lucide-react";
+import bclogo from "@/assets/bclogo.png";
+import bctext from "@/assets/bctext.png";
 
 const WelcomeCurtain = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [closing, setClosing] = useState(false);
 
-  if (isOpen) return null;
+  const handleGetStarted = () => {
+    setClosing(true);
+    window.setTimeout(() => setVisible(false), 420);
+  };
+
+  if (!visible) return null;
 
   return (
-    <div
-      className={`fixed inset-0 z-50 bg-primary flex flex-col items-center justify-center transition-transform duration-700 ${
-        isOpen ? "-translate-y-full" : "translate-y-0"
-      }`}
-    >
-      <div className="text-center animate-fade-in">
-        <div className="w-24 h-24 bg-primary-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Building2 className="w-12 h-12 text-primary-foreground" />
-        </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-4">
-          MEP Solutions
-        </h1>
-        <p className="text-primary-foreground/80 text-lg mb-8">
-          Engineering Excellence Since 1998
-        </p>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0c2637]">
+      <div
+        className={`text-center px-6 transform transition-all duration-500 ease-out ${
+          closing ? "opacity-0 -translate-y-6 scale-95" : "opacity-100 translate-y-0 scale-100"
+        }`}
+      >
+        <img src={bclogo} alt="Company logo" className="mx-auto mb-4 w-32 h-auto object-contain" />
+        <img src={bctext} alt="Company wordmark" className="mx-auto mb-6 w-48 md:w-64 object-contain" />
         <Button
           size="lg"
-          variant="secondary"
-          onClick={() => setIsOpen(true)}
-          className="text-lg px-8"
+          onClick={handleGetStarted}
+          className="text-lg px-8 bg-[#ff7a00] text-white hover:bg-[#ff8f1a]"
+          aria-label="Get started"
         >
           Get Started
         </Button>

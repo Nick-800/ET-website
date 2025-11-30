@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Zap, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import bclogo from "@/assets/bclogo.png";
 
 const Footer = () => {
   return (
@@ -8,11 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Zap className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">MEP Solutions</span>
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <img src={bclogo} alt="ET-Group" className="w-10 h-10 object-contain" />
+              <span className="text-xl font-bold">ET-Group</span>
             </Link>
             <p className="text-muted-foreground text-sm">
               Engineering excellence in Mechanical, Electrical & Plumbing solutions for modern infrastructure.
@@ -76,7 +75,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} MEP Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ET-Group. All rights reserved.</p>
         </div>
       </div>
     </footer>

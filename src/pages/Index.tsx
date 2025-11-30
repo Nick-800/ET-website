@@ -3,7 +3,6 @@ import { ArrowRight, Building2, Zap, Droplets, Shield, CheckCircle2 } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
-import WelcomeCurtain from "@/components/WelcomeCurtain";
 import TeamSection from "@/components/TeamSection";
 import StatsChart from "@/components/StatsChart";
 import WorkGallery from "@/components/WorkGallery";
@@ -36,15 +35,14 @@ const services = [
 const Index = () => {
   return (
     <>
-      <WelcomeCurtain />
       <Layout>
         {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-fixed transition-none"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-background/80 transition-none" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -52,7 +50,7 @@ const Index = () => {
               Engineering Excellence
             </span>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Innovative MEP Solutions for Modern Infrastructure
+              Innovative MEP Solutions by ET-Group for Modern Infrastructure
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
               We deliver cutting-edge Mechanical, Electrical & Plumbing engineering services that power buildings and transform spaces into efficient, sustainable environments.
@@ -124,8 +122,8 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
                 Engineering Excellence Since 1998
               </h2>
-              <p className="text-muted-foreground mb-8">
-                With over two decades of experience, MEP Solutions has established itself as a leader in mechanical, electrical, and plumbing engineering. Our commitment to innovation and sustainability sets us apart.
+                <p className="text-muted-foreground mb-8">
+                With over two decades of experience, ET-Group has established itself as a leader in mechanical, electrical, and plumbing engineering. Our commitment to innovation and sustainability sets us apart.
               </p>
               <ul className="space-y-4">
                 {[

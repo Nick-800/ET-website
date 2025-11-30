@@ -46,7 +46,7 @@ const About = () => {
               Engineering the Future
             </h1>
             <p className="text-lg text-muted-foreground">
-              Founded in 1998, MEP Solutions has grown from a small engineering firm to a nationally recognized leader in mechanical, electrical, and plumbing design services.
+              Founded in 1998, ET-Group has grown from a small engineering firm to a nationally recognized leader in mechanical, electrical, and plumbing design services.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  MEP Solutions was founded with a vision to transform the way buildings are engineered. Our founders believed that mechanical, electrical, and plumbing systems should not just be functional—they should be innovative, efficient, and sustainable.
+                  ET-Group was founded with a vision to transform the way buildings are engineered. Our founders believed that mechanical, electrical, and plumbing systems should not just be functional—they should be innovative, efficient, and sustainable.
                 </p>
                 <p>
                   Over the past 25 years, we've designed systems for over 500 projects ranging from small commercial renovations to large-scale healthcare facilities and industrial complexes. Our team has grown to include over 50 licensed professional engineers, each bringing unique expertise and passion to our work.
