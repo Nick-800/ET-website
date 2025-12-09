@@ -1,15 +1,22 @@
 import { useEffect, useRef } from "react";
 
-// Placeholder images - replace with actual project images
+// Project showcase images from Show case folder
 const galleryImages = [
-  { id: 1, src: "/placeholder.svg", alt: "Commercial HVAC Installation" },
-  { id: 2, src: "/placeholder.svg", alt: "Industrial Electrical System" },
-  { id: 3, src: "/placeholder.svg", alt: "Hospital MEP Design" },
-  { id: 4, src: "/placeholder.svg", alt: "Data Center Cooling" },
-  { id: 5, src: "/placeholder.svg", alt: "Office Building Plumbing" },
-  { id: 6, src: "/placeholder.svg", alt: "Fire Protection System" },
-  { id: 7, src: "/placeholder.svg", alt: "Residential Complex MEP" },
-  { id: 8, src: "/placeholder.svg", alt: "Manufacturing Plant Systems" },
+  { id: 1, src: "/src/assets/Show case/1.png", alt: "Project Showcase 1" },
+  { id: 2, src: "/src/assets/Show case/2.png", alt: "Project Showcase 2" },
+  { id: 3, src: "/src/assets/Show case/3.png", alt: "Project Showcase 3" },
+  { id: 4, src: "/src/assets/Show case/4.png", alt: "Project Showcase 4" },
+  { id: 5, src: "/src/assets/Show case/5.png", alt: "Project Showcase 5" },
+  { id: 6, src: "/src/assets/Show case/6.png", alt: "Project Showcase 6" },
+  { id: 7, src: "/src/assets/Show case/7.png", alt: "Project Showcase 7" },
+  { id: 8, src: "/src/assets/Show case/8.png", alt: "Project Showcase 8" },
+  { id: 9, src: "/src/assets/Show case/9.jpeg", alt: "Project Showcase 9" },
+  { id: 10, src: "/src/assets/Show case/10.jpeg", alt: "Project Showcase 10" },
+  { id: 11, src: "/src/assets/Show case/11.jpeg", alt: "Project Showcase 11" },
+  { id: 12, src: "/src/assets/Show case/12.jpeg", alt: "Project Showcase 12" },
+  { id: 13, src: "/src/assets/Show case/13.jpeg", alt: "Project Showcase 13" },
+  { id: 14, src: "/src/assets/Show case/14.jpeg", alt: "Project Showcase 14" },
+  { id: 15, src: "/src/assets/Show case/15.jpeg", alt: "Project Showcase 15" },
 ];
 
 const WorkGallery = () => {
