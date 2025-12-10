@@ -1,6 +1,5 @@
-import React, { useState, Suspense } from "react";
+import { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-const ContactMap = React.lazy(() => import('@/components/ContactMap'));
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,22 +11,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    details: ["123 Engineering Drive", "Tech City, TC 12345"],
+    details: ["Jawhara Tower, Benghazi, Libya"],
   },
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+    details: ["+218 91 522 2049"],
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@mepsolutions.com", "projects@mepsolutions.com"],
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    details: ["Monday - Friday: 8AM - 6PM", "Saturday: 9AM - 1PM"],
+    details: ["info@etgroup.ly"],
   },
 ];
 
@@ -201,25 +195,27 @@ const Contact = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold mb-6">Our Location</h2>
-          {/* Default coords are NYC; update lat/lng props to your office coordinates */}
-          <div>
-            <Suspense fallback={
-              <div className="w-full h-72 md:h-96 rounded-md overflow-hidden flex items-center justify-center bg-muted">
-                <p className="text-muted-foreground">Loading map…</p>
-              </div>
-            }>
-              <ContactMap lat={32.1172829} lng={20.069573} zoom={16} />
-              <div className="mt-3 text-sm">
-                <a
-                  href="https://maps.app.goo.gl/FuUyCTsW5mjpB4hP6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  Open in Google Maps
-                </a>
-              </div>
-            </Suspense>
+          <div className="w-full rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3379.232111772856!2d20.066997076272074!3d32.117033217420264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13831d3da49ceceb%3A0xc6a8ead0dc8c0330!2sJawhara%20benghazi%20tower!5e0!3m2!1sen!2sly!4v1765339807912!5m2!1sen!2sly"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-72 md:h-96"
+            ></iframe>
+          </div>
+          <div className="mt-3 text-sm">
+            <a
+              href="https://maps.app.goo.gl/FuUyCTsW5mjpB4hP6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Open in Google Maps
+            </a>
           </div>
         </div>
       </section>

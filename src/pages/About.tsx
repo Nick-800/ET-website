@@ -3,6 +3,7 @@ import { ArrowRight, Award, Users, Target, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
+import OrganizationalChart from "@/components/OrganizationalChart";
 
 const values = [
   {
@@ -115,30 +116,17 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team - Organizational Chart */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium">Our Team</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Leadership</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Organizational Structure</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our leadership team brings decades of combined experience in MEP engineering.
+              Our comprehensive team structure ensures excellence across all departments and projects.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <Card key={member.name}>
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-10 h-10 text-primary/50" />
-                  </div>
-                  <h3 className="font-semibold mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary mb-1">{member.role}</p>
-                  <p className="text-xs text-muted-foreground">{member.specialty}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <OrganizationalChart />
         </div>
       </section>
 

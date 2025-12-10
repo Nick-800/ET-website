@@ -3,40 +3,28 @@ import { User, Linkedin, Mail } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "John Anderson",
+    name: "Eng. Zakaria Alaraibi",
     role: "General Manager",
     isManager: true,
-    description: "25+ years of experience leading MEP projects worldwide.",
+    description: "Leading ET Group's MEP engineering excellence with extensive experience in project management and technical innovation.",
   },
   {
-    name: "Sarah Mitchell",
-    role: "Mechanical Engineer",
+    name: "Eng. Mohammed Eljhane",
+    role: "Product Manager",
     isManager: false,
-    description: "HVAC specialist with expertise in sustainable design.",
+    description: "Strategic product development and project coordination expertise.",
   },
   {
-    name: "Michael Chen",
-    role: "Electrical Engineer",
+    name: "Eng. Hadeel Samir",
+    role: "Planning and Quality Assurance",
     isManager: false,
-    description: "Power systems and smart building integration expert.",
+    description: "Ensuring project excellence through comprehensive planning and quality control.",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Plumbing Engineer",
+    name: "Eng. Alaa Alaraibi",
+    role: "Planning and Quality Assurance",
     isManager: false,
-    description: "Water management and green infrastructure specialist.",
-  },
-  {
-    name: "David Thompson",
-    role: "Fire Protection Engineer",
-    isManager: false,
-    description: "Life safety systems and code compliance expert.",
-  },
-  {
-    name: "Lisa Park",
-    role: "Project Coordinator",
-    isManager: false,
-    description: "BIM coordination and project management professional.",
+    description: "Quality assurance specialist focused on project planning and standards compliance.",
   },
 ];
 
@@ -65,7 +53,7 @@ const TeamSection = () => {
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-1 text-white">{manager.name}</h3>
+                <h3 className="text-xl font-bold mb-1 text-primary">{manager.name}</h3>
                 <p className="text-primary font-medium mb-3">{manager.role}</p>
                 <p className="text-muted-foreground text-sm mb-4">{manager.description}</p>
                 <div className="flex justify-center gap-3">
@@ -82,19 +70,21 @@ const TeamSection = () => {
         )}
 
         {/* Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {members.map((member) => (
-            <Card key={member.name} className="group hover:shadow-lg transition-shadow bg-background">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <User className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-1 text-white">{member.name}</h3>
-                <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-muted-foreground text-xs">{member.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+            {members.map((member) => (
+              <Card key={member.name} className="group hover:shadow-lg transition-shadow bg-background">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                    <User className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="font-semibold mb-1 text-white">{member.name}</h3>
+                  <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-muted-foreground text-xs">{member.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
