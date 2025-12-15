@@ -64,7 +64,7 @@ const About = () => {
                   ET-Group was founded with a vision to transform the way buildings are engineered. Our founders believed that mechanical, electrical, and plumbing systems should not just be functional—they should be innovative, efficient, and sustainable.
                 </p>
                 <p>
-                  Over the past 25 years, we've designed systems for over 500 projects ranging from small commercial renovations to large-scale healthcare facilities and industrial complexes. Our team has grown to include over 50 licensed professional engineers, each bringing unique expertise and passion to our work.
+                  With 10+ years experienced engineers, we've designed systems for over 500 projects ranging from small commercial renovations to large-scale healthcare facilities and industrial complexes. Our team has grown to include over 50 licensed professional engineers, each bringing unique expertise and passion to our work.
                 </p>
                 <p>
                   Today, we continue to push the boundaries of what's possible in MEP engineering, embracing new technologies like BIM, energy modeling, and smart building integration to deliver solutions that meet the challenges of tomorrow.
@@ -73,11 +73,11 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-primary text-primary-foreground rounded-lg p-8 text-center">
-                <div className="text-4xl font-bold mb-2">25+</div>
-                <div className="text-sm opacity-80">Years in Business</div>
+                <div className="text-4xl font-bold mb-2">10+</div>
+                <div className="text-sm opacity-80">Years Experienced Engineers</div>
               </div>
               <div className="bg-card text-card-foreground rounded-lg p-8 text-center border border-border">
-                <div className="text-4xl font-bold mb-2">500+</div>
+                <div className="text-4xl font-bold mb-2">150+</div>
                 <div className="text-sm text-muted-foreground">Projects Completed</div>
               </div>
               <div className="bg-card text-card-foreground rounded-lg p-8 text-center border border-border">

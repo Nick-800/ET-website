@@ -70,6 +70,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Our Work */}
+      <WorkGallery />
+
 
       {/* Services Overview */}
       <section className="py-20 bg-card">
@@ -106,9 +109,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-        {/* Work Gallery */}
-        <WorkGallery />
 
         {/* Stats Chart Section */}
         <StatsChart />

@@ -58,6 +58,17 @@ const projects = [
     ],
   },
   {
+    title: "Joulyana",
+    year: "2025",
+    category: "City Structures",
+    description: "Urban infrastructure project featuring comprehensive MEP systems including advanced electrical distribution, efficient public utilities, smart city integration, and sustainable energy solutions for modern urban development.",
+    services: ["HVAC", "Electrical Distribution", "Public Utilities", "Smart City Systems", "Solar Integration", "Water Management", "Street Lighting"],
+    images: [
+      "/src/assets/projects/4.Joulyana/1.jpeg",
+      "/src/assets/projects/4.Joulyana/2.png",
+    ],
+  },
+  {
     title: "Africa Hotel",
     year: "2024",
     category: "Hotel",
@@ -81,17 +92,6 @@ const projects = [
     services: ["HVAC", "Refrigeration Systems", "Electrical Distribution", "Fire Protection", "Emergency Lighting", "Ventilation"],
     images: [
       "/src/assets/projects/3.Hyper Market/1.png",
-    ],
-  },
-  {
-    title: "Joulyana",
-    year: "2025",
-    category: "City Structures",
-    description: "Urban infrastructure project featuring comprehensive MEP systems including advanced electrical distribution, efficient public utilities, smart city integration, and sustainable energy solutions for modern urban development.",
-    services: ["HVAC", "Electrical Distribution", "Public Utilities", "Smart City Systems", "Solar Integration", "Water Management", "Street Lighting"],
-    images: [
-      "/src/assets/projects/4.Joulyana/1.jpeg",
-      "/src/assets/projects/4.Joulyana/2.png",
     ],
   },
   {
