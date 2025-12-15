@@ -8,81 +8,6 @@ import Layout from "@/components/Layout";
 
 const projects = [
   {
-    title: "Africa Hotel",
-    year: "2024",
-    category: "Hotel",
-    description: "Luxury hotel featuring comprehensive MEP systems including advanced climate control, high-efficiency lighting, and integrated building management systems for optimal guest comfort.",
-    services: ["HVAC", "Electrical", "Plumbing", "Fire Protection", "Building Automation", "Emergency Power"],
-    images: [
-      "/src/assets/projects/1.Africa Hotel/1.jpg",
-      "/src/assets/projects/1.Africa Hotel/2.jpg",
-      "/src/assets/projects/1.Africa Hotel/3.jpg",
-      "/src/assets/projects/1.Africa Hotel/4.jpg",
-      "/src/assets/projects/1.Africa Hotel/5.jpg",
-      "/src/assets/projects/1.Africa Hotel/6.jpg",
-      "/src/assets/projects/1.Africa Hotel/7.jpg",
-    ],
-  },
-  {
-    title: "AL-MUKHTAR Hotel",
-    year: "2023",
-    category: "Hotel",
-    description: "Modern hospitality complex with state-of-the-art MEP infrastructure, including energy-efficient systems, advanced fire safety, and smart room controls for enhanced guest experience.",
-    services: ["HVAC", "Electrical", "Plumbing", "Fire Suppression", "Smart Controls", "Lighting Design"],
-    images: [
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/1.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/2.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/3.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/4.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/5.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/6.png",
-    ],
-  },
-  {
-    title: "Hyper Market",
-    year: "2022",
-    category: "Commercial",
-    description: "Large-scale retail facility with specialized refrigeration systems, high-capacity electrical distribution, comprehensive fire protection, and efficient HVAC for customer comfort.",
-    services: ["HVAC", "Refrigeration Systems", "Electrical Distribution", "Fire Protection", "Emergency Lighting", "Ventilation"],
-    images: [
-      "/src/assets/projects/3.Hyper Market/1.png",
-    ],
-  },
-  {
-    title: "Joulyana",
-    year: "2025",
-    category: "City Structures",
-    description: "Urban infrastructure project featuring comprehensive MEP systems including advanced electrical distribution, efficient public utilities, smart city integration, and sustainable energy solutions for modern urban development.",
-    services: ["HVAC", "Electrical Distribution", "Public Utilities", "Smart City Systems", "Solar Integration", "Water Management", "Street Lighting"],
-    images: [
-      "/src/assets/projects/4.Joulyana/1.jpeg",
-    ],
-  },
-  {
-    title: "North GHERAN",
-    year: "2023",
-    category: "Residential",
-    description: "Comprehensive residential complex with full MEP design including central HVAC, advanced electrical systems, efficient plumbing networks, and integrated safety systems.",
-    services: ["Central HVAC", "Electrical Systems", "Plumbing Networks", "Fire Alarm Systems", "Security Integration", "Backup Power"],
-    images: [
-      "/src/assets/projects/5.North GHERAN/1.png",
-      "/src/assets/projects/5.North GHERAN/2.png",
-      "/src/assets/projects/5.North GHERAN/3.png",
-      "/src/assets/projects/5.North GHERAN/4.png",
-      "/src/assets/projects/5.North GHERAN/5.png",
-    ],
-  },
-  {
-    title: "Garyounis University Rainwater Tank",
-    year: "2022",
-    category: "Educational",
-    description: "Sustainable water management infrastructure for educational campus, featuring advanced rainwater harvesting, filtration systems, and automated distribution network.",
-    services: ["Water Storage Systems", "Filtration", "Pumping Systems", "Distribution Network", "Monitoring Systems", "Overflow Protection"],
-    images: [
-      "/src/assets/projects/6.Garyounis University rainwater tank/1.png",
-    ],
-  },
-  {
     title: "Alkhaleej Communications Building",
     year: "2024",
     category: "Commercial",
@@ -117,6 +42,82 @@ const projects = [
       "/src/assets/projects/8.Bawabit Alrahman Mosque/16.jpeg",
     ],
   },
+  {
+    title: "AL-MUKHTAR Hotel",
+    year: "2023",
+    category: "Hotel",
+    description: "Modern hospitality complex with state-of-the-art MEP infrastructure, including energy-efficient systems, advanced fire safety, and smart room controls for enhanced guest experience.",
+    services: ["HVAC", "Electrical", "Plumbing", "Fire Suppression", "Smart Controls", "Lighting Design"],
+    images: [
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/1.png",
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/2.png",
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/3.png",
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/4.png",
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/5.png",
+      "/src/assets/projects/2.AL-MUKHTAR Hotel/6.png",
+    ],
+  },
+  {
+    title: "Africa Hotel",
+    year: "2024",
+    category: "Hotel",
+    description: "Luxury hotel featuring comprehensive MEP systems including advanced climate control, high-efficiency lighting, and integrated building management systems for optimal guest comfort.",
+    services: ["HVAC", "Electrical", "Plumbing", "Fire Protection", "Building Automation", "Emergency Power"],
+    images: [
+      "/src/assets/projects/1.Africa Hotel/1.jpg",
+      "/src/assets/projects/1.Africa Hotel/2.jpg",
+      "/src/assets/projects/1.Africa Hotel/3.jpg",
+      "/src/assets/projects/1.Africa Hotel/4.jpg",
+      "/src/assets/projects/1.Africa Hotel/5.jpg",
+      "/src/assets/projects/1.Africa Hotel/6.jpg",
+      "/src/assets/projects/1.Africa Hotel/7.jpg",
+    ],
+  },
+  {
+    title: "Hyper Market",
+    year: "2022",
+    category: "Commercial",
+    description: "Large-scale retail facility with specialized refrigeration systems, high-capacity electrical distribution, comprehensive fire protection, and efficient HVAC for customer comfort.",
+    services: ["HVAC", "Refrigeration Systems", "Electrical Distribution", "Fire Protection", "Emergency Lighting", "Ventilation"],
+    images: [
+      "/src/assets/projects/3.Hyper Market/1.png",
+    ],
+  },
+  {
+    title: "Joulyana",
+    year: "2025",
+    category: "City Structures",
+    description: "Urban infrastructure project featuring comprehensive MEP systems including advanced electrical distribution, efficient public utilities, smart city integration, and sustainable energy solutions for modern urban development.",
+    services: ["HVAC", "Electrical Distribution", "Public Utilities", "Smart City Systems", "Solar Integration", "Water Management", "Street Lighting"],
+    images: [
+      "/src/assets/projects/4.Joulyana/1.jpeg",
+      "/src/assets/projects/4.Joulyana/2.png",
+    ],
+  },
+  {
+    title: "North GHERAN",
+    year: "2023",
+    category: "Residential",
+    description: "Comprehensive residential complex with full MEP design including central HVAC, advanced electrical systems, efficient plumbing networks, and integrated safety systems.",
+    services: ["Central HVAC", "Electrical Systems", "Plumbing Networks", "Fire Alarm Systems", "Security Integration", "Backup Power"],
+    images: [
+      "/src/assets/projects/5.North GHERAN/1.png",
+      "/src/assets/projects/5.North GHERAN/2.png",
+      "/src/assets/projects/5.North GHERAN/3.png",
+      "/src/assets/projects/5.North GHERAN/4.png",
+        ],
+  },
+  {
+    title: "Garyounis University Rainwater Tank",
+    year: "2022",
+    category: "Educational",
+    description: "Sustainable water management infrastructure for educational campus, featuring advanced rainwater harvesting, filtration systems, and automated distribution network.",
+    services: ["Water Storage Systems", "Filtration", "Pumping Systems", "Distribution Network", "Monitoring Systems", "Overflow Protection"],
+    images: [
+      "/src/assets/projects/6.Garyounis University rainwater tank/1.png",
+    ],
+  },
+  
 ];
 
 

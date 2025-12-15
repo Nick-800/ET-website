@@ -155,6 +155,35 @@ const Services = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Regular Service Cards */}
+            {services.map((service) => (
+              <Card key={service.title} className="group hover:shadow-lg transition-all">
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors text-primary p-2">
+                      <service.icon />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
+                      <p className="text-muted-foreground text-sm">{service.description}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+
             {/* Partner Card - El Masar El Thabet */}
             <Card className="md:col-span-2 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 hover:shadow-xl transition-all">
               <CardHeader>
@@ -198,35 +227,6 @@ const Services = () => {
                 </Button>
               </CardContent>
             </Card>
-
-            {/* Regular Service Cards */}
-            {services.map((service) => (
-              <Card key={service.title} className="group hover:shadow-lg transition-all">
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors text-primary p-2">
-                      <service.icon />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                      <p className="text-muted-foreground text-sm">{service.description}</p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>

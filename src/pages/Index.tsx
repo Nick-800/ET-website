@@ -107,6 +107,9 @@ const Index = () => {
         </div>
       </section>
 
+        {/* Work Gallery */}
+        <WorkGallery />
+
         {/* Stats Chart Section */}
         <StatsChart />
 
@@ -185,9 +188,6 @@ const Index = () => {
           </Button>
         </div>
       </section>
-
-        {/* Work Gallery */}
-        <WorkGallery />
       </Layout>
     </>
   );

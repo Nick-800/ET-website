@@ -1,243 +1,148 @@
 import { Card, CardContent } from "@/components/ui/card";
 
-// Organizational Chart Component with animations
+type OrgNode = {
+    title: string;
+    names: string | string[];
+    size?: "sm" | "md" | "lg";
+};
+
+const NodeCard = ({ title, names, size = "md" }: OrgNode) => {
+    const list = Array.isArray(names) ? names : [names];
+    const padding = size === "lg" ? "p-6" : size === "sm" ? "p-3" : "p-4";
+    const textSize = size === "lg" ? "text-base" : size === "sm" ? "text-sm" : "text-base";
+
+    return (
+        <Card
+            className="bg-card border border-border shadow-sm rounded-xl transition-transform duration-200 hover:-translate-y-1 focus-within:-translate-y-1"
+            role="group"
+        >
+            <CardContent className={`${padding} text-center space-y-2`}>
+                <div className="bg-neutral-900 text-white px-3 py-2 rounded-md font-semibold text-sm" aria-label={title}>
+                    {title}
+                </div>
+                {list.map((name) => (
+                    <p key={name} className={`font-medium leading-snug text-card-foreground ${textSize}`}>
+                        {name}
+                    </p>
+                ))}
+            </CardContent>
+        </Card>
+    );
+};
+
+const VLine = ({ h = 24 }: { h?: number }) => (
+    <div className="w-px bg-border mx-auto" style={{ height: `${h}px` }} aria-hidden="true" />
+);
+
+const HLine = () => <div className="h-px w-full bg-border" aria-hidden="true" />;
+
+// Modern, clean organizational chart with single connectors per tier
 const OrganizationalChart = () => {
     return (
-        <div className="w-full overflow-x-auto pb-8">
-            <div className="min-w-[1200px] mx-auto p-8">
-                {/* Chairman - Top Level */}
-                <div className="flex justify-center mb-16 animate-fade-in">
-                    <Card className="w-80 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/40 border-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <CardContent className="p-6 text-center">
-                            <div className="bg-black text-white px-4 py-3 rounded-t mb-3 font-bold text-base">
-                                Chairman
-                            </div>
-                            <p className="text-base font-semibold">Eng. Zakariya Al-Araibi</p>
-                        </CardContent>
-                    </Card>
+        <section className="w-full overflow-x-auto pb-12" aria-label="Organizational chart">
+            <div className="min-w-[960px] mx-auto px-4 md:px-8 space-y-12">
+                {/* Top leadership */}
+                <div className="flex flex-col items-center gap-4">
+                    <NodeCard title="Chairman" names="Eng. Zakariya Al-Araibi" size="lg" />
+                    <VLine h={32} />
+                    <NodeCard title="Project Manager" names="Eng. Mohammed Eljhane" size="lg" />
                 </div>
 
-                {/* Connecting Line */}
-                <div className="flex justify-center mb-12">
-                    <div className="w-1 h-16 bg-black org-line org-line-vertical"></div>
-                </div>
-
-                {/* Project Manager - Second Level */}
-                <div className="flex justify-center mb-16 animate-fade-in animation-delay-200">
-                    <Card className="w-80 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/40 border-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <CardContent className="p-6 text-center">
-                            <div className="bg-black text-white px-4 py-3 rounded-t mb-3 font-bold text-base">
-                                Project Manager
-                            </div>
-                            <p className="text-base font-semibold">Eng. Mohammed Eljhane</p>
-                        </CardContent>
-                    </Card>
-                </div>
-
-                {/* Connecting Lines to Departments */}
-                <div className="flex justify-center mb-12">
-                    <div className="relative w-full max-w-4xl h-24">
-                        <div className="absolute left-1/2 top-0 w-1 h-10 bg-black org-line org-line-vertical" style={{ transform: 'translateX(-0.5px)' }}></div>
-                        <div className="absolute left-0 top-10 right-0 h-1 bg-black org-line org-line-horizontal"></div>
-                        <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '12.5%' }}></div>
-                        <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '37.5%' }}></div>
-                        <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '62.5%' }}></div>
-                        <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '87.5%' }}></div>
-                    </div>
-                </div>
-
-                {/* Third Level - 4 Departments */}
-                <div className="grid grid-cols-4 gap-8 mb-20 max-w-6xl mx-auto">
-                    <Card className="bg-card border-primary/30 border-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer animate-fade-in animation-delay-400">
-                        <CardContent className="p-4 text-center">
-                            <div className="bg-black text-white px-3 py-2 text-sm rounded-t mb-3 font-bold">
-                                Media Office
-                            </div>
-                            <p className="text-sm font-semibold">Mrs. Bushra Yousef</p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-primary/30 border-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer animate-fade-in animation-delay-500">
-                        <CardContent className="p-4 text-center">
-                            <div className="bg-black text-white px-3 py-2 text-sm rounded-t mb-3 font-bold">
-                                Planning and Quality Assurance Department
-                            </div>
-                            <p className="text-sm font-semibold">Eng. Hadeel Samir</p>
-                            <p className="text-sm font-semibold">Eng. Alaa Al-Araibi</p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-primary/30 border-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer animate-fade-in animation-delay-600">
-                        <CardContent className="p-4 text-center">
-                            <div className="bg-black text-white px-3 py-2 text-sm rounded-t mb-3 font-bold">
-                                Legal Affairs
-                            </div>
-                            <p className="text-sm font-semibold">Mrs. Khawla Bouzandis</p>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="bg-card border-primary/30 border-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer animate-fade-in animation-delay-700">
-                        <CardContent className="p-4 text-center">
-                            <div className="bg-black text-white px-3 py-2 text-sm rounded-t mb-3 font-bold">
-                                Secretary
-                            </div>
-                            <p className="text-sm font-semibold">Mrs. Bushra Yousef</p>
-                        </CardContent>
-                    </Card>
-                </div>
-
-                {/* Fourth Level - Technical Administration and Administrative Affairs */}
-                <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {/* Technical Administration Branch */}
-                    <div className="animate-fade-in animation-delay-800">
-                        <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/30 border-2 shadow-xl mb-6">
-                            <CardContent className="p-5 text-center">
-                                <div className="bg-black text-white px-4 py-3 rounded-t mb-3 font-bold text-base">
-                                    Technical Administration
-                                </div>
-                                <p className="text-base font-semibold">Eng. Zakariya Al-Araibi</p>
-                            </CardContent>
-                        </Card>
-
-                        {/* Connecting Lines */}
-                        <div className="flex justify-center mb-6">
-                            <div className="relative w-full h-24">
-                                <div className="absolute left-1/2 top-0 w-1 h-10 bg-black org-line org-line-vertical" style={{ transform: 'translateX(-0.5px)' }}></div>
-                                <div className="absolute left-0 top-10 right-0 h-1 bg-black org-line org-line-horizontal"></div>
-                                <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '16.66%' }}></div>
-                                <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '50%' }}></div>
-                                <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '83.33%' }}></div>
-                            </div>
+                {/* Direct reports to PM */}
+                <div className="flex flex-col items-center gap-6">
+                    <VLine h={28} />
+                    <div className="relative w-full max-w-5xl pt-8">
+                        {/* single horizontal connector for this tier */}
+                        <div className="absolute left-6 right-6 top-0">
+                            <HLine />
                         </div>
-
-                        {/* Sub-departments */}
-                        <div className="grid grid-cols-3 gap-4 mb-8">
-                            <Card className="bg-card border-primary/20 border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-2 text-center">
-                                    <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1 font-bold">
-                                        Projects Implementation Department
-                                    </div>
-                                    <p className="text-xs">Eng. Mohammed El-Jehane</p>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="bg-card border-border shadow hover:shadow-md transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-2 text-center">
-                                    <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1 font-bold">
-                                        Procurement
-                                    </div>
-                                    <p className="text-xs">Eng. Mohammed Ziou</p>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="bg-card border-border shadow hover:shadow-md transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-2 text-center">
-                                    <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1 font-bold">
-                                        Design Department
-                                    </div>
-                                    <p className="text-xs">Eng. Alaa Al-Araibi</p>
-                                </CardContent>
-                            </Card>
-                        </div>
-
-                        {/* Connecting line for Design Department */}
-                        <div className="flex justify-end pr-[16.66%] mb-6">
-                            <div className="w-1 h-12 bg-black org-line org-line-vertical"></div>
-                        </div>
-
-                        {/* Design Department Sub-sections */}
-                        <div className="grid grid-cols-3 gap-3 mb-8">
+                        <div className="flex flex-wrap justify-between gap-6 px-4 md:px-6">
                             {[
-                                { title: "Infrastructure", name: "Eng. Marwa Al-Hewari" },
-                                { title: "Fire Safety Department", name: "Eng. Iklas Al-Abbur" },
-                                { title: "Electrical Department", name: "Eng. Hadeel Samir" },
-                                { title: "Plumbing Department", name: "Eng. Haneen Addi" },
-                                { title: "Air Conditioning Department", name: "Eng. Alaa Al-Araibi" },
-                                { title: "IT Department", name: "Eng. Sohaib Kamash" },
-                            ].map((dept, index) => (
-                                <Card key={index} className="bg-card border-primary/20 border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 cursor-pointer">
-                                    <CardContent className="p-2.5 text-center">
-                                        <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1.5 font-bold leading-tight">
-                                            {dept.title}
-                                        </div>
-                                        <p className="text-xs leading-tight">{dept.name}</p>
-                                    </CardContent>
-                                </Card>
+                                { title: "Media Office", names: "Mrs. Bushra Yousef" },
+                                { title: "Planning & Quality Assurance", names: ["Eng. Hadeel Samir", "Eng. Alaa Al-Araibi"] },
+                                { title: "Legal Affairs", names: "Mrs. Khawla Bouzandis" },
+                                { title: "Secretary", names: "Mrs. Bushra Yousef" },
+                            ].map((item) => (
+                                <div key={item.title} className="w-full sm:w-[48%] md:w-[22%] flex flex-col items-center gap-3">
+                                    <VLine h={24} />
+                                    <NodeCard title={item.title} names={item.names} size="sm" />
+                                </div>
                             ))}
                         </div>
                     </div>
+                </div>
 
-                    {/* Administrative and Financial Affairs Branch */}
-                    <div className="animate-fade-in animation-delay-1000">
-                        <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/20 shadow-lg mb-4">
-                            <CardContent className="p-4 text-center">
-                                <div className="bg-black text-white px-4 py-2 rounded-t mb-2 font-bold">
-                                    Administrative and Financial Affairs
-                                </div>
-                                <p className="text-sm font-semibold">Mrs. Bushra Yousef</p>
-                            </CardContent>
-                        </Card>
-
-                        {/* Connecting Lines */}
-                        <div className="flex justify-center mb-6">
-                            <div className="relative w-full h-24">
-                                <div className="absolute left-1/2 top-0 w-1 h-10 bg-black org-line org-line-vertical" style={{ transform: 'translateX(-0.5px)' }}></div>
-                                <div className="absolute left-[25%] top-10 right-[25%] h-1 bg-black org-line org-line-horizontal"></div>
-                                <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '25%' }}></div>
-                                <div className="absolute top-10 w-1 h-14 bg-black org-line org-line-vertical" style={{ left: '75%' }}></div>
+                {/* Two main branches */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    {/* Technical Administration */}
+                    <div className="flex flex-col items-center gap-6">
+                        <NodeCard title="Technical Administration" names="Eng. Zakariya Al-Araibi" />
+                        <VLine h={24} />
+                        <div className="w-full">
+                            <HLine />
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                                {[{ title: "Projects Implementation", names: "Eng. Mohammed El-Jehane" }, { title: "Procurement", names: "Eng. Mohammed Ziou" }, { title: "Design Department", names: "Eng. Alaa Al-Araibi" }].map((item) => (
+                                    <div key={item.title} className="flex flex-col items-center gap-3">
+                                        <VLine h={20} />
+                                        <NodeCard title={item.title} names={item.names} size="sm" />
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
-                        {/* Sub-departments */}
-                        <div className="grid grid-cols-2 gap-4 mb-8">
-                            <Card className="bg-card border-primary/20 border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-3 text-center">
-                                    <div className="bg-black text-white px-2 py-2 text-sm rounded-t mb-2 font-bold">
-                                        Finance
+                        {/* Design sub-departments */}
+                        <div className="w-full mt-6">
+                            <HLine />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+                                {[
+                                    { title: "Infrastructure", names: "Eng. Marwa Al-Hewari" },
+                                    { title: "Fire Safety", names: "Eng. Iklas Al-Abbur" },
+                                    { title: "Electrical", names: "Eng. Hadeel Samir" },
+                                    { title: "Plumbing", names: "Eng. Haneen Addi" },
+                                    { title: "Air Conditioning", names: "Eng. Alaa Al-Araibi" },
+                                    { title: "IT", names: "Eng. Sohaib Kamash" },
+                                ].map((item) => (
+                                    <div key={item.title} className="flex flex-col items-center gap-3">
+                                        <VLine h={18} />
+                                        <NodeCard title={item.title} names={item.names} size="sm" />
                                     </div>
-                                    <p className="text-sm">Mr. Mouad Al-Gumati</p>
-                                </CardContent>
-                            </Card>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
 
-                            <Card className="bg-card border-primary/20 border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-3 text-center">
-                                    <div className="bg-black text-white px-2 py-2 text-sm rounded-t mb-2 font-bold">
-                                        Human Resources
+                    {/* Administrative & Financial Affairs */}
+                    <div className="flex flex-col items-center gap-6">
+                        <NodeCard title="Administrative & Financial Affairs" names="Mrs. Bushra Yousef" />
+                        <VLine h={24} />
+                        <div className="w-full">
+                            <HLine />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                {[{ title: "Finance", names: "Mr. Mouad Al-Gumati" }, { title: "Human Resources", names: "Mrs. Bushra Yousef" }].map((item) => (
+                                    <div key={item.title} className="flex flex-col items-center gap-3">
+                                        <VLine h={20} />
+                                        <NodeCard title={item.title} names={item.names} size="sm" />
                                     </div>
-                                    <p className="text-sm">Mrs. Bushra Yousef</p>
-                                </CardContent>
-                            </Card>
+                                ))}
+                            </div>
                         </div>
 
-                        {/* Connecting line for Finance */}
-                        <div className="flex justify-start pl-[25%] mb-6">
-                            <div className="w-1 h-12 bg-black org-line org-line-vertical"></div>
-                        </div>
-
-                        {/* Finance Sub-sections */}
-                        <div className="grid grid-cols-1 gap-3 max-w-xs mx-auto">
-                            <Card className="bg-card border-primary/20 border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-2.5 text-center">
-                                    <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1.5 font-bold">
-                                        Accounts
+                        {/* Finance sub-sections */}
+                        <div className="w-full sm:w-2/3 mt-6 mx-auto">
+                            <HLine />
+                            <div className="grid grid-cols-1 gap-3 mt-4">
+                                {[{ title: "Accounts", names: "Mr. Mouad Al-Gumati" }, { title: "Purchasing", names: "Eng. Abd-Elfattah Al-Nahhoum" }].map((item) => (
+                                    <div key={item.title} className="flex flex-col items-center gap-3">
+                                        <VLine h={18} />
+                                        <NodeCard title={item.title} names={item.names} size="sm" />
                                     </div>
-                                    <p className="text-xs">Mr. Mouad Al-Gumati</p>
-                                </CardContent>
-                            </Card>
-
-                            <Card className="bg-card border-primary/20 border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 cursor-pointer">
-                                <CardContent className="p-2.5 text-center">
-                                    <div className="bg-black text-white px-2 py-1 text-xs rounded-t mb-1.5 font-bold">
-                                        Purchasing
-                                    </div>
-                                    <p className="text-xs">Eng. Abd-Elfattah Al-Nahhoum</p>
-                                </CardContent>
-                            </Card>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
