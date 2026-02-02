@@ -44,7 +44,7 @@ const transformProject = (apiProject: ApiProject) => {
   };
 };
 
-const categories = ["All", "Hotel", "Commercial", "Residential", "Educational", "Religious", "City Structures", "Shopping", "jhaba"];
+const categories = ["All", "Hotel", "Commercial", "Residential", "Educational", "Religious", "City Structures", "Shopping", "Healthcare"];
 
 interface Project {
   id: number;
