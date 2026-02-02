@@ -1,30 +1,62 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-// Project showcase images from Show case folder
-const galleryImages = [
-  { id: 1, src: "/src/assets/Show case/1.png", alt: "Project Showcase 1" },
-  { id: 2, src: "/src/assets/Show case/2.png", alt: "Project Showcase 2" },
-  { id: 3, src: "/src/assets/Show case/3.png", alt: "Project Showcase 3" },
-  { id: 4, src: "/src/assets/Show case/4.png", alt: "Project Showcase 4" },
-  { id: 5, src: "/src/assets/Show case/5.png", alt: "Project Showcase 5" },
-  { id: 6, src: "/src/assets/Show case/6.png", alt: "Project Showcase 6" },
-  { id: 7, src: "/src/assets/Show case/7.png", alt: "Project Showcase 7" },
-  { id: 8, src: "/src/assets/Show case/8.png", alt: "Project Showcase 8" },
-  { id: 9, src: "/src/assets/Show case/9.jpeg", alt: "Project Showcase 9" },
-  { id: 10, src: "/src/assets/Show case/10.jpeg", alt: "Project Showcase 10" },
-  { id: 11, src: "/src/assets/Show case/11.jpeg", alt: "Project Showcase 11" },
-  { id: 12, src: "/src/assets/Show case/12.jpeg", alt: "Project Showcase 12" },
-  { id: 13, src: "/src/assets/Show case/13.jpeg", alt: "Project Showcase 13" },
-  { id: 14, src: "/src/assets/Show case/14.jpeg", alt: "Project Showcase 14" },
-  { id: 15, src: "/src/assets/Show case/15.jpeg", alt: "Project Showcase 15" },
-];
+// API Response Type
+interface GalleryApiResponse {
+  success: boolean;
+  data: string[];
+}
+
+interface GalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+}
 
 const WorkGallery = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  // Fetch gallery images from API
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("https://dashboard.etgroup.ly/api/images/urls");
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch gallery images");
+        }
+
+        const data: GalleryApiResponse = await response.json();
+        
+        if (data.success && Array.isArray(data.data)) {
+          // Transform API URLs to gallery image format
+          const images = data.data.map((url, index) => ({
+            id: index + 1,
+            src: url,
+            alt: `Project Showcase ${index + 1}`,
+          }));
+          setGalleryImages(images);
+        } else {
+          throw new Error("Invalid response structure");
+        }
+      } catch (err) {
+        console.error("Error fetching gallery images:", err);
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGalleryImages();
+  }, []);
+
+  // Auto-scroll animation
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || galleryImages.length === 0) return;
 
     let animationId: number;
     let scrollPosition = 0;
@@ -44,7 +76,7 @@ const WorkGallery = () => {
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [galleryImages]);
 
   // Duplicate images for seamless loop
   const duplicatedImages = [...galleryImages, ...galleryImages];
@@ -62,25 +94,45 @@ const WorkGallery = () => {
           </p>
         </div>
       </div>
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-hidden"
-        style={{ scrollBehavior: "auto" }}
-      >
-        {duplicatedImages.map((image, index) => (
-          <div
-            key={`${image.id}-${index}`}
-            className="flex-shrink-0 w-72 h-48 rounded-lg overflow-hidden relative"
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-full object-cover"
-            />
-            {/* remove hover overlay; keep static caption accessible to screen readers if needed */}
-          </div>
-        ))}
-      </div>
+
+      {loading && (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">Loading gallery...</p>
+        </div>
+      )}
+
+      {error && (
+        <div className="text-center py-12">
+          <p className="text-destructive">Error loading gallery: {error}</p>
+        </div>
+      )}
+
+      {!loading && !error && galleryImages.length > 0 && (
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-hidden"
+          style={{ scrollBehavior: "auto" }}
+        >
+          {duplicatedImages.map((image, index) => (
+            <div
+              key={`${image.id}-${index}`}
+              className="flex-shrink-0 w-72 h-48 rounded-lg overflow-hidden relative"
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!loading && !error && galleryImages.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">No images available</p>
+        </div>
+      )}
     </section>
   );
 };
