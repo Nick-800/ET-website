@@ -6,124 +6,48 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
 
-const projects = [
-  {
-    title: "Alkhaleej Communications Building",
-    year: "2024",
-    category: "Commercial",
-    description: "Modern office building with cutting-edge MEP systems including precision cooling for server rooms, advanced electrical infrastructure, and intelligent building management.",
-    services: ["HVAC", "Electrical", "Data Center Cooling", "Fire Protection", "Building Management System", "UPS Systems"],
-    images: [
-      "/src/assets/projects/7.Alkhaleej Communications Building/1.jpeg",
-    ],
-  },
-  {
-    title: "Bawabit Alrahman Mosque",
-    year: "2023",
-    category: "Religious",
-    description: "Sacred worship facility with specialized MEP design including acoustically optimized HVAC, energy-efficient lighting, advanced sound systems, and comprehensive fire safety measures.",
-    services: ["HVAC", "Electrical", "Plumbing", "Fire Protection", "Sound Systems", "Lighting Design", "Ablution Systems", "Emergency Systems"],
-    images: [
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/1.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/2.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/3.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/4.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/5.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/6.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/7.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/8.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/9.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/10.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/11.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/12.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/13.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/14.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/15.jpeg",
-      "/src/assets/projects/8.Bawabit Alrahman Mosque/16.jpeg",
-    ],
-  },
-  {
-    title: "AL-MUKHTAR Hotel",
-    year: "2023",
-    category: "Hotel",
-    description: "Modern hospitality complex with state-of-the-art MEP infrastructure, including energy-efficient systems, advanced fire safety, and smart room controls for enhanced guest experience.",
-    services: ["HVAC", "Electrical", "Plumbing", "Fire Suppression", "Smart Controls", "Lighting Design"],
-    images: [
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/1.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/2.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/3.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/4.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/5.png",
-      "/src/assets/projects/2.AL-MUKHTAR Hotel/6.png",
-    ],
-  },
-  {
-    title: "Joulyana",
-    year: "2025",
-    category: "City Structures",
-    description: "Urban infrastructure project featuring comprehensive MEP systems including advanced electrical distribution, efficient public utilities, smart city integration, and sustainable energy solutions for modern urban development.",
-    services: ["HVAC", "Electrical Distribution", "Public Utilities", "Smart City Systems", "Solar Integration", "Water Management", "Street Lighting"],
-    images: [
-      "/src/assets/projects/4.Joulyana/1.jpeg",
-      "/src/assets/projects/4.Joulyana/2.png",
-    ],
-  },
-  {
-    title: "Africa Hotel",
-    year: "2024",
-    category: "Hotel",
-    description: "Luxury hotel featuring comprehensive MEP systems including advanced climate control, high-efficiency lighting, and integrated building management systems for optimal guest comfort.",
-    services: ["HVAC", "Electrical", "Plumbing", "Fire Protection", "Building Automation", "Emergency Power"],
-    images: [
-      "/src/assets/projects/1.Africa Hotel/1.jpg",
-      "/src/assets/projects/1.Africa Hotel/2.jpg",
-      "/src/assets/projects/1.Africa Hotel/3.jpg",
-      "/src/assets/projects/1.Africa Hotel/4.jpg",
-      "/src/assets/projects/1.Africa Hotel/5.jpg",
-      "/src/assets/projects/1.Africa Hotel/6.jpg",
-      "/src/assets/projects/1.Africa Hotel/7.jpg",
-    ],
-  },
-  {
-    title: "Hyper Market",
-    year: "2022",
-    category: "Commercial",
-    description: "Large-scale retail facility with specialized refrigeration systems, high-capacity electrical distribution, comprehensive fire protection, and efficient HVAC for customer comfort.",
-    services: ["HVAC", "Refrigeration Systems", "Electrical Distribution", "Fire Protection", "Emergency Lighting", "Ventilation"],
-    images: [
-      "/src/assets/projects/3.Hyper Market/1.png",
-    ],
-  },
-  {
-    title: "North GHERAN",
-    year: "2023",
-    category: "Residential",
-    description: "Comprehensive residential complex with full MEP design including central HVAC, advanced electrical systems, efficient plumbing networks, and integrated safety systems.",
-    services: ["Central HVAC", "Electrical Systems", "Plumbing Networks", "Fire Alarm Systems", "Security Integration", "Backup Power"],
-    images: [
-      "/src/assets/projects/5.North GHERAN/1.png",
-      "/src/assets/projects/5.North GHERAN/2.png",
-      "/src/assets/projects/5.North GHERAN/3.png",
-      "/src/assets/projects/5.North GHERAN/4.png",
-        ],
-  },
-  {
-    title: "Garyounis University Rainwater Tank",
-    year: "2022",
-    category: "Educational",
-    description: "Sustainable water management infrastructure for educational campus, featuring advanced rainwater harvesting, filtration systems, and automated distribution network.",
-    services: ["Water Storage Systems", "Filtration", "Pumping Systems", "Distribution Network", "Monitoring Systems", "Overflow Protection"],
-    images: [
-      "/src/assets/projects/6.Garyounis University rainwater tank/1.png",
-    ],
-  },
-  
-];
+// API Response Types
+interface ApiProject {
+  id: number;
+  type: string;
+  name: string;
+  description: string;
+  year: number;
+  services: string[];
+  images: string[];
+  created_at: string;
+  updated_at: string;
+}
 
+interface ApiResponse {
+  success: boolean;
+  data: ApiProject[];
+}
 
-const categories = ["All", "Hotel", "Commercial", "Residential", "Educational", "Religious", "City Structures"];
+// Strip HTML tags from description
+const stripHtmlTags = (html: string): string => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
+
+// Transform API project to local format
+const transformProject = (apiProject: ApiProject) => {
+  return {
+    id: apiProject.id,
+    title: apiProject.name,
+    year: apiProject.year.toString(),
+    category: apiProject.type,
+    description: stripHtmlTags(apiProject.description),
+    services: apiProject.services,
+    images: apiProject.images,
+  };
+};
+
+const categories = ["All", "Hotel", "Commercial", "Residential", "Educational", "Religious", "City Structures", "Shopping", "jhaba"];
 
 interface Project {
+  id: number;
   title: string;
   year: string;
   category: string;
@@ -239,10 +163,73 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [availableCategories, setAvailableCategories] = useState(categories);
+
+  // Fetch projects from API
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("https://dashboard.etgroup.ly/api/projects");
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+
+        const data: ApiResponse = await response.json();
+        
+        if (data.success && Array.isArray(data.data)) {
+          // Transform API projects to local format
+          const transformedProjects = data.data.map(transformProject);
+          setProjects(transformedProjects);
+
+          // Generate dynamic categories from projects
+          const uniqueCategories = ["All", ...new Set(transformedProjects.map(p => p.category))];
+          setAvailableCategories(uniqueCategories);
+        } else {
+          throw new Error("Invalid response structure");
+        }
+      } catch (err) {
+        console.error("Error fetching projects:", err);
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const filteredProjects = selectedCategory === "All"
     ? projects
     : projects.filter(project => project.category === selectedCategory);
+
+  if (loading) {
+    return (
+      <Layout>
+        <section className="py-20 bg-card">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-lg text-muted-foreground">Loading projects...</p>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <section className="py-20 bg-card">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-lg text-destructive">Error loading projects: {error}</p>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -265,7 +252,7 @@ const Projects = () => {
       <section className="py-8 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
+            {availableCategories.map((cat) => (
               <Button
                 key={cat}
                 variant={cat === selectedCategory ? "default" : "outline"}
@@ -284,7 +271,7 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>

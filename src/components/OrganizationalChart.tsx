@@ -123,7 +123,7 @@ const OrganizationalChart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/organization');
+                const response = await fetch('https://dashboard.etgroup.ly/api/organization');
                 if (!response.ok) {
                     throw new Error('Failed to fetch organizational data');
                 }
