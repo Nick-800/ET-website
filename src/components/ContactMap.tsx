@@ -31,7 +31,7 @@ const ContactMap: React.FC<Props> = ({ lat = 40.7128, lng = -74.006, zoom = 13 }
         />
         <Marker position={[lat, lng]} icon={icon}>
           <Popup>
-            ET-Group Headquarters<br />123 Engineering Drive
+            ET-Group Headquarters<br /> Jawhara Tower, Benghazi, Libya
           </Popup>
         </Marker>
       </MapContainer>

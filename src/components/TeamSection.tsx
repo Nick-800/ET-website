@@ -6,6 +6,7 @@ const teamMembers = [
     name: "Eng. Zakaria Alaraibi",
     role: "General Manager",
     isManager: true,
+    mail: "zk@etgroup.ly",
     description: "Leading ET Group's MEP engineering excellence with extensive experience in project management and technical innovation.",
   },
   {

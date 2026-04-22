@@ -47,7 +47,7 @@ const About = () => {
               Engineering the Future
             </h1>
             <p className="text-lg text-muted-foreground">
-              Founded in 1998, ET-Group has grown from a small engineering firm to a nationally recognized leader in mechanical, electrical, and plumbing design services.
+              Founded in 2023, ET-Group has grown from a small engineering firm to a nationally recognized leader in mechanical, electrical, and plumbing design services.
             </p>
           </div>
         </div>

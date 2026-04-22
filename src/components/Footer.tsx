@@ -60,15 +60,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                123 Engineering Drive, Tech City
+                Jawhara Tower, Benghazi, Libya
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                +1 (555) 123-4567
+                +218 91 522 2049
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                info@mepsolutions.com
+                info@etgroup.ly
               </li>
             </ul>
           </div>
